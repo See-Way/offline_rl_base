@@ -26,9 +26,13 @@ class TanhNormal(Distribution):
         self.normal_std = normal_std
         self.normal = Normal(normal_mean, normal_std)
         self.epsilon = epsilon
-        self.mode = torch.tanh(normal_mean)
+        self._mode = torch.tanh(normal_mean)
         self.max_action = max_action
         self.min_action = min_action
+
+    @property
+    def mode(self):
+        return self._mode
 
     def sample_n(self, n, return_pre_tanh_value=False):
         z = self.normal.sample_n(n)
