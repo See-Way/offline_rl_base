@@ -14,7 +14,8 @@ RUN cd neorl && pip install -e . -i https://pypi.tuna.tsinghua.edu.cn/simple
 RUN cd - 
 RUN pip install -e . -i https://pypi.tuna.tsinghua.edu.cn/simple
 # RUN apt-get -y install libglew-dev
-RUN pip install mujoco_py==2.0.2.8 -i https://pypi.tuna.tsinghua.edu.cn/simple
+RUN pip install mujoco_py==2.0.2.8
+ -i https://pypi.tuna.tsinghua.edu.cn/simple
 RUN apt install -y libosmesa6-dev && apt-get -y install patchelf
 RUN export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/root/.mujoco/mujoco200/bin
 
